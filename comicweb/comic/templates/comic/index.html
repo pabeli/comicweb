@@ -29,7 +29,7 @@
 
     <body>
         <div class="col-12">
-            <a style="text-align:center" href="{% url 'comic:index' %}">ComicBook</a>
+            <a class= "title-link" href="{% url 'comic:index' %}"><h1 class="title">ComicBook</h1></a>
             <ul class="nav nav-tabs">
                 <a class="navbar-brand mb-0 h3" > Latest Issues </a>
                     <li class="nav-item ml-auto">
@@ -46,37 +46,32 @@
                     <div role="tabpanel" class="tab-pane fade show active" id="grid">
                         <div class="row">
                             {% for element in results %}
-                                <div class= "col-12 col-sm-3">
+                                <div class= "col-12 col-sm-3 mb-5">
                                     <div class="card" id="comic">
                                         <img class="card-img-top" src= {{ element.image.original_url }}> 
-
                                         <div class="card-body" id="comic-body">
                                             <h5 class="card-title"> "{{ element.name }}" Issue number: {{ element.issue_number }}</h5>
                                             <p class="card-text">Date added: {{ element.date_added }} </p>
                                             <a href="{% url 'comic:detail_view' element.id %}" class="stretched-link">Details</a>
-                                                </div>    
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                </div>                        
-                            </div>
-
-                            <div role="tabpanel" class="tab-pane fade" id="list">
-                                {% for element in results %}
-                                <div class="row mb-5">
-                                    <div class="media position-relative">
-                                        <img src={{ element.image.original_url }} class="imglist mr-3">
-                                        <div class="media-body">
-                                            <h5 class="mt-0">"{{ element.name }}" Issue number: {{ element.issue_number }}</h5>
-                                            <p>Date added: {{ element.date_added }} </p>
-                                            <a href="#" class="stretched-link">Details</a>
-                                        </div>
+                                        </div>    
                                     </div>
                                 </div>
-                                {% endfor %}
+                            {% endfor %}
+                        </div>                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="list">
+                        {% for element in results %}
+                            <div class="row mb-5">
+                                <div class="media position-relative">
+                                    <img src={{ element.image.original_url }} class="imglist mr-3">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">"{{ element.name }}" Issue number: {{ element.issue_number }}</h5>
+                                        <p>Date added: {{ element.date_added }} </p>
+                                        <a href="#" class="stretched-link">Details</a>
+                                    </div>
+                                </div>
                             </div>
-
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

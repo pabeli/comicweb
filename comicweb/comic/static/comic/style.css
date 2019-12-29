@@ -2,6 +2,31 @@ body {
     background-color: #E2E6EA;
 }
 
+.title{
+    text-align:center;
+    text-decoration: none;
+}
+
+.title-link:hover {
+    text-decoration:none;
+    color: black;
+}
+
+.title-link:link {
+    text-decoration:none;
+    color: black;
+}
+
+.title-link:visited {
+    text-decoration:none;
+    color: black;
+}
+
+.title-link:active {
+    text-decoration:none;
+    color: black;
+}
+
 .imglist {
     max-height: 200px;
 }
