@@ -24,9 +24,9 @@ def index(request):
 
     return HttpResponse(template.render(context, request))
 
-def detail_view(request):
-    # Deberá venir por parámetro la url de la api del comic
-    api_comic = "https://comicvine.gamespot.com/api/issue/4000-49/"
+def detail_view(request, detail_id):
+    
+    api_comic = "https://comicvine.gamespot.com/api/issue/4000-" + str(detail_id) + "/"
 
     #Getting the json
     url = api_comic + '?api_key=408a81d41cecfbbe5385a6afc633f1c7117c2326&format=json'

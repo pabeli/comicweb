@@ -16,80 +16,68 @@
         <!-- Font Awesome Icon Library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        
+        {% load static %}
+        <!--CSS-->
+        <link rel="stylesheet" type="text/css" href="{% static 'comic/style.css' %}">
+        <!--JS-->
+        <script src="{% static 'comic/script.js' %}"></script> 
+
         <title>Comic Book</title>
         
     </head>
-    <body style="background-color: #E2E6EA;">
-        <!--Navigation bar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand mb-0 h1" href="#" > Comic Book </a>
-            
-            <!-- Buttons to choose list or grid view -->   
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav navbar-right">
-                <li class="nav-item active">
-                    <button onclick="listView()" id="list" type="button" class="btn btn-light"><i class="fa fa-bars"></i> List</button>
-                </li>
-                <li class="nav-item">
-                    <button onclick="gridView()" type="button" class="btn btn-light"><i class="fa fa-th-large"></i> Grid</button>
-                </li>
+
+    <body>
+        <div class="col-12">
+            <a style="text-align:center" href="{% url 'comic:index' %}">ComicBook</a>
+            <ul class="nav nav-tabs">
+                <a class="navbar-brand mb-0 h3" > Latest Issues </a>
+                    <li class="nav-item ml-auto">
+                        <a class="nav-link active" href="#grid" role="tab" data-toggle="tab"><i class="fa fa-th-large"></i> Grid</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#list" role="tab" data-toggle="tab"><i class="fa fa-bars"></i> List</a>
+                    </li>
             </ul>
-            </div>
-        </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade show active" id="grid">
+                        <div class="row">
+                            {% for element in results %}
+                                <div class= "col-12 col-sm-3">
+                                    <div class="card" id="comic">
+                                        <img class="card-img-top" src= {{ element.image.original_url }}> 
 
-        <!--Comics elements-->
-        <div class="row" style="margin-left: 0px; margin-right: 0px">
-            {% for element in results %}
-                <div class="column">
-                    <div class= "col-sm-6 mb-3">
-                        <div class="card" id="comic" style="width: 18rem;">
-                            <img class="card-img-top" src= {{ element.image.original_url }} alt="Card image cap"> <!-- Imagen -->
+                                        <div class="card-body" id="comic-body">
+                                            <h5 class="card-title"> "{{ element.name }}" Issue number: {{ element.issue_number }}</h5>
+                                            <p class="card-text">Date added: {{ element.date_added }} </p>
+                                            <a href="{% url 'comic:detail_view' element.id %}" class="stretched-link">Details</a>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>                        
+                            </div>
 
-                            <div class="card-body" id="comic-body">
-                                <h5 class="card-title"> "{{ element.name }}" Issue number: {{ element.issue_number }}</h5>
-                                <p class="card-text">Date added: {{ element.date_added }} </p>
-                                <a href="https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link">Details</a>
-                            </div>    
+                            <div role="tabpanel" class="tab-pane fade" id="list">
+                                {% for element in results %}
+                                <div class="row mb-5">
+                                    <div class="media position-relative">
+                                        <img src={{ element.image.original_url }} class="imglist mr-3">
+                                        <div class="media-body">
+                                            <h5 class="mt-0">"{{ element.name }}" Issue number: {{ element.issue_number }}</h5>
+                                            <p>Date added: {{ element.date_added }} </p>
+                                            <a href="#" class="stretched-link">Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
     </body>
-</html>
-
-<script>
-    // Get the elements with class="column"
-    var elements = document.getElementsByClassName("column");
-
-    // Declare a loop variable
-    var i;
-
-    // List View
-    function listView() {
-    for (i = 0; i < elements.length; i++) {
-        elements[i].style.width = "100%";
-    }
-    }
-
-    // Grid View
-    function gridView() {
-    for (i = 0; i < elements.length; i++) {
-        elements[i].style.width = "25%";
-    }
-    }
-
-    /* Optional: Add active class to the current button (highlight it) */
-    var container = document.getElementById("btnContainer");
-    var btns = container.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-    });
-    }
-</script>
