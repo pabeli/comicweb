@@ -30,3 +30,21 @@ body {
 .imglist {
     max-height: 200px;
 }
+
+.imgdetail {
+    float:right; 
+    margin-left: 5px; 
+    margin-top: 5px; 
+    border-radius: 10px;
+    max-height: 500px;
+}
+
+.titledetail {
+    border-bottom: 1px solid black; 
+    padding-bottom: 10px; 
+    margin-top: 5px
+}
+
+.elementdetail {
+    margin-bottom: 5px
+}

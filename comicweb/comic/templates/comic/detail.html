@@ -36,25 +36,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12" >
-                    <img style='float:right; margin-left: 5px; margin-top: 5px; border-radius: 5px' src={{ image.original_url }} />
+                    <img class="imgdetail" src={{ image.original_url }} />
                     <!--Character-->
-                    <h3 style="border-bottom: 1px solid black; padding-bottom: 10px; margin-top: 5px"> Character </h3>
+                    <h3 class= "titledetail"> Character </h3>
                     <ul class="list-group list-group-flush">
                     {% for name in names %}
-                        <p style="padding-bottom: 10px">{{ name }}</p>
+                        <p class= "elementdetail">{{ name }}</p>
                     {% endfor %}
                     </ul>
                     <!--Team-->
-                    <h3 style="border-bottom: 1px solid black; padding-bottom: 10px; margin-top: 5px"> Team </h3>
+                    <h3 class= "titledetail"> Team </h3>
                     <ul class="list-group list-group-flush">
                     {% for member in team %}
-                        <p style="padding-bottom: 10px">{{ member }}</p>
+                        <p class= "elementdetail">{{ member }}</p>
                     {% endfor %}
                     <!--Location-->
-                    <h3 style="border-bottom: 1px solid black; padding-bottom: 10px; margin-top: 5px"> Location </h3>
+                    <h3 class= "titledetail"> Location </h3>
                     <ul class="list-group list-group-flush">
                     {% for element in location %}
-                        <p style="padding-bottom: 10px">{{ element }}</p>
+                        <p class= "elementdetail">{{ element }}</p>
                     {% endfor %}
                 </div>
             </div>
