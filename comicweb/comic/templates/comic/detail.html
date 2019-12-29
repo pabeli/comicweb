@@ -16,6 +16,10 @@
         <!-- Font Awesome Icon Library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <!--Google Fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kulim+Park&display=swap" rel="stylesheet">
         
         {% load static %}
         <!--CSS-->
@@ -27,36 +31,37 @@
         
     </head>
 <body>
-        <div class="col-12">
-            <a class= "title-link" href="{% url 'comic:index' %}"><h1 class="title">ComicBook</h1></a>
-            <ul class="nav nav-tabs">
-                <a class="navbar-brand mb-0 h3" > Details </a>
-            </ul>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12" >
-                    <img class="imgdetail img-fluid" src={{ image.original_url }} />
-                    <!--Character-->
-                    <h3 class= "titledetail"> Character </h3>
-                    <ul class="list-group list-group-flush">
-                    {% for name in names %}
-                        <p class= "elementdetail">{{ name }}</p>
-                    {% endfor %}
-                    </ul>
-                    <!--Team-->
-                    <h3 class= "titledetail"> Team </h3>
-                    <ul class="list-group list-group-flush">
-                    {% for member in team %}
-                        <p class= "elementdetail">{{ member }}</p>
-                    {% endfor %}
-                    <!--Location-->
-                    <h3 class= "titledetail"> Location </h3>
-                    <ul class="list-group list-group-flush">
-                    {% for element in location %}
-                        <p class= "elementdetail">{{ element }}</p>
-                    {% endfor %}
-                </div>
+    <div class="col-12">
+        <a class= "title-link" href="{% url 'comic:index' %}"><h1 class="title">ComicBook</h1></a>
+        <ul class="nav nav-tabs">
+            <a class="navbar-brand mb-0 h3" > Details </a>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" >
+                <img class="imgdetail img-fluid" src={{ image.original_url }} />
+                <!--Character-->
+                <h3 class= "titledetail"> Character </h3>
+                <ul class="list-group list-group-flush">
+                {% for name in names %}
+                    <p class= "elementdetail">{{ name }}</p>
+                {% endfor %}
+                </ul>
+                <!--Team-->
+                <h3 class= "titledetail"> Team </h3>
+                <ul class="list-group list-group-flush">
+                {% for member in team %}
+                    <p class= "elementdetail">{{ member }}</p>
+                {% endfor %}
+                <!--Location-->
+                <h3 class= "titledetail"> Location </h3>
+                <ul class="list-group list-group-flush">
+                {% for element in location %}
+                    <p class= "elementdetail">{{ element }}</p>
+                {% endfor %}
             </div>
-    </body>
+        </div>
+    </div>
+</body>
 </html>

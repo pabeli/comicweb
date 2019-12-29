@@ -16,6 +16,10 @@
         <!-- Font Awesome Icon Library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <!--Google Fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kulim+Park&display=swap" rel="stylesheet">
         
         {% load static %}
         <!--CSS-->
@@ -31,12 +35,12 @@
         <div class="col-12">
             <a class= "title-link" href="{% url 'comic:index' %}"><h1 class="title">ComicBook</h1></a>
             <ul class="nav nav-tabs">
-                <a class="navbar-brand mb-0 h3" > Latest Issues </a>
+                <a class="tittlenav navbar-brand mb-0 h3" > Latest Issues </a>
                     <li class="nav-item ml-auto">
-                        <a class="nav-link active" href="#grid" role="tab" data-toggle="tab"><i class="fa fa-th-large"></i> Grid</a>
+                        <a class="elementnav nav-link active" href="#grid" role="tab" data-toggle="tab"><i class="fa fa-th-large"></i> Grid</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#list" role="tab" data-toggle="tab"><i class="fa fa-bars"></i> List</a>
+                        <a class="elementnav nav-link" href="#list" role="tab" data-toggle="tab"><i class="fa fa-bars"></i> List</a>
                     </li>
             </ul>
         </div>
@@ -75,4 +79,5 @@
                     </div>
                 </div>
             </div>
+        </div>
     </body>
