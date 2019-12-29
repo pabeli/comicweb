@@ -67,7 +67,7 @@
                                     <div class="media-body">
                                         <h5 class="mt-0">"{{ element.name }}" Issue number: {{ element.issue_number }}</h5>
                                         <p>Date added: {{ element.date_added }} </p>
-                                        <a href="#" class="stretched-link">Details</a>
+                                        <a href="{% url 'comic:detail_view' element.id %}" class="stretched-link">Details</a>
                                     </div>
                                 </div>
                             </div>
