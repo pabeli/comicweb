@@ -20,7 +20,7 @@ def index(request):
     }
 
     #Getting the template for the page
-    template = loader.get_template('comic\index.html')
+    template = loader.get_template('comic/index.html')
 
     return HttpResponse(template.render(context, request))
 
@@ -65,7 +65,7 @@ def detail_view(request, detail_id):
     }
 
     #Getting the template for the page
-    template = loader.get_template('comic\detail.html')
+    template = loader.get_template('comic/detail.html')
 
     #return HttpResponse(url)
     return HttpResponse(template.render(context, request))
